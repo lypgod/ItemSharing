@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:1000/
+      label: master
+      profile: default
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+          - id: user-service-rewrite
+            uri: lb://user-service
+            predicates:
+              - Path=/user/**
+            filters:
+              - PrefixPath=/v1
+              - TrackingFilter
+          - id: item-service-rewrite
+            uri: lb://item-service
+            predicates:
+              - Path=/item/**
+            filters:
+              - PrefixPath=/v1
+              - TrackingFilter
+  application:
+    name: gateway-server
+  zipkin:
+    base-url: http://192.168.2.10:1501
+  sleuth:
+    sampler:
+      probability: 1
+server:
+  port: 1301

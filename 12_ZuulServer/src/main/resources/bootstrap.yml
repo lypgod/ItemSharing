@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:1000/
+      label: master
+      profile: default
+  application:
+    name: zuul-server
+server:
+  port: 1201
+
+zuul:
+  routes:
+    user-service: /user/**
+    item-service: /item/**
+  ignored-services: '*'
+  prefix: /api

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://192.168.2.10:9091/lypgod/springcloudconfigservers.git
+          searchPaths: ItemSharing
+          username: lypgod
+          password: 12345678
+      label: master
+
+server:
+  port: 1000

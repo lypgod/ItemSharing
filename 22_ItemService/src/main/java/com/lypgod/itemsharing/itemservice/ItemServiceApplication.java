@@ -8,14 +8,20 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import javax.annotation.Resource;
 
 /**
  * @author lypgod
  */
-@SpringBootApplication
 @Log4j2
+@SpringBootApplication
+@EnableEurekaClient
+@EnableFeignClients
+@EnableHystrix
 public class ItemServiceApplication implements CommandLineRunner {
     @Resource
     private UserService userService;

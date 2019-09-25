@@ -8,6 +8,8 @@ import com.lypgod.itemsharing.userservice.util.SecurityUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author lypgod
@@ -20,7 +22,18 @@ public class UserService {
     private RoleRepository roleRepository;
 
     public User getUserByUsername(String username) {
+//        simulateLoading();
         return userRepository.findByUsername(username);
+    }
+
+    private void simulateLoading() {
+        if (new Random().nextInt(3) == 2) {
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public User createUser(User user) throws Exception {

@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -20,10 +20,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring.cloud.version>Finchley.SR4</spring.cloud.version>
+        <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
+        <zipkin.version>2.11.9</zipkin.version>
     </properties>
 
     <modules>
+        <module>10_ConfigServer</module>
+        <module>11_EurekaServer</module>
+        <module>12_ZuulServer</module>
+        <module>13_GatewayServer</module>
+        <module>14_AuthorizationServer</module>
         <module>21_UserService</module>
         <module>22_ItemService</module>
     </modules>
@@ -31,7 +37,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

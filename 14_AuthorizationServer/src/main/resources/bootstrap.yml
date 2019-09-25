@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:1000/
+      label: master
+      profile: default
+  application:
+    name: authorization-server
+server:
+  port: 1401
